@@ -29,6 +29,10 @@ class TestApp
     redirect '/poltergeist/with_different_resources'
   end
 
+  get '/poltergeist/#/pound' do
+    render_view 'simple'
+  end
+
   get '/poltergeist/:view' do |view|
     render_view view
   end

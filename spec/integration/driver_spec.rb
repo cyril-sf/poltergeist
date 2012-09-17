@@ -148,6 +148,11 @@ module Capybara::Poltergeist
       end
     end
 
+    it 'supports url with #' do
+      @driver.visit('/poltergeist/#/pound')
+      @driver.body.should include('<a href="/">Link</a>')
+    end
+
     context 'javascript errors' do
       it 'propagates a Javascript error inside Poltergeist to a ruby exception' do
         expect { @driver.browser.command 'browser_error' }.to raise_error(BrowserError)

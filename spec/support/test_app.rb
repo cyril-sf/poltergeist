@@ -29,7 +29,7 @@ class TestApp
     redirect '/poltergeist/with_different_resources'
   end
 
-  get '/poltergeist/#/pound' do
+  get '/poltergeist/pound' do
     render_view 'simple'
   end
 

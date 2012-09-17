@@ -149,7 +149,7 @@ module Capybara::Poltergeist
     end
 
     it 'supports url with #' do
-      @driver.visit('/poltergeist/#/pound')
+      @driver.visit('/poltergeist/pound/#/works')
       @driver.body.should include('<a href="/">Link</a>')
     end
 

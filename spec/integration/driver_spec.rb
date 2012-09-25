@@ -148,9 +148,25 @@ module Capybara::Poltergeist
       end
     end
 
-    it 'supports url with #' do
-      @driver.visit('/poltergeist/pound/#/works')
+    it 'supports accessing a URL with a hash' do
+      @driver.visit('/poltergeist/single-page-app#/something')
       @driver.body.should include('<a href="/">Link</a>')
+      @driver.evaluate_script('location.hash').should == '#/something'
+    end
+
+    it 'supports changing URLs by hash only' do
+      @driver.visit('/poltergeist/single-page-app')
+      #@driver.visit('/poltergeist/single-page-app#/something')
+      @driver.body.should include(%Q{
+        TODO: change this test to have a view that makes changes to the DOM so we can
+        visit #/something
+        wait_until{ dom_has_changed }
+
+        or, in keeping with the rest of the suite
+        visit #/something
+        sleep 0.01
+        assert dom_has_changed
+      })
     end
 
     context 'javascript errors' do

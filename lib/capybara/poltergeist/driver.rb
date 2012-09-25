@@ -1,6 +1,6 @@
 module Capybara::Poltergeist
   class Driver < Capybara::Driver::Base
-    DEFAULT_TIMEOUT = 30
+    DEFAULT_TIMEOUT = 3
 
     attr_reader :app, :app_server, :server, :client, :browser, :options
     attr_accessor :headers
